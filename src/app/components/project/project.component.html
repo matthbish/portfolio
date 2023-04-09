@@ -1,0 +1,31 @@
+<div class="parent">
+    <h1 class="title">{{ name }}</h1>
+
+    <!-- <mat-grid-list cols="2" rowHeight="1:1">
+        <mat-grid-tile *ngFor="let image of images">
+            <img [src]="image" alt="Project">
+        </mat-grid-tile>
+    </mat-grid-list> -->
+
+    <c-carousel [interval]="5000" transition="slide" [dark]="true" transition="crossfade">
+        <c-carousel-indicators></c-carousel-indicators>
+        <c-carousel-inner>
+            <c-carousel-item *ngFor="let image of images">
+                <div>
+                    <img [src]="image" alt="Project Image"/>
+                </div>
+            </c-carousel-item>
+        </c-carousel-inner>
+        <c-carousel-control [routerLink] caption="Previous" direction="prev"></c-carousel-control>
+        <c-carousel-control [routerLink] caption="Next" direction="next"></c-carousel-control>
+    </c-carousel>
+    
+    <h1>Techstack</h1>
+    <ul>
+        <li *ngFor="let tech of techstack">{{ tech }}</li>
+    </ul>
+    
+    <h1>Description</h1>
+    <p>{{ description }}</p>
+</div>
+
