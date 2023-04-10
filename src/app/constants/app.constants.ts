@@ -52,6 +52,7 @@ export const CTG: Project = {
         '../assets/c2g/convert.png',
     ],
     techstack: [
+        'Ionic',
         'React',
         'Typescript',
         'HTML',
