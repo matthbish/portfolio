@@ -10,3 +10,7 @@ Live GPS location tracking:
 Opening one of your saved routes will open the route in a map, including a marker for your current location which will provide live tracking allowing you to look at your progress along your route throughout your run.
 
 The Running Route Generator is designed to work in any country for various activities such as: running, walking, cycling/biking, etc.
+
+---
+
+* This project was formerly released on Google Play, but removed due to Google API usage.

@@ -11,6 +11,7 @@ export class ProjectComponent {
   @Input()
   set project(proj: Project) {
     this.name = proj.name;
+    this.link = proj.link ? proj.link : '';
     this.images = proj.images;
     this.techstack = proj.techstack;
     this.description = proj.description;
@@ -18,6 +19,9 @@ export class ProjectComponent {
 
   @Input()
   name = 'Project';
+
+  @Input()
+  link = '';
 
   @Input()
   images = [

@@ -1,19 +1,14 @@
 <div class="parent">
-    <h1 class="title">{{ name }}</h1>
-
-    <!-- <mat-grid-list cols="2" rowHeight="1:1">
-        <mat-grid-tile *ngFor="let image of images">
-            <img [src]="image" alt="Project">
-        </mat-grid-tile>
-    </mat-grid-list> -->
+    <a *ngIf="link; else title" [href]="link" target="_blank">{{ name }}</a>
+    <ng-template #title>
+        <h1 class="title" href="https://convert2grams.web.app/">{{ name }}</h1>
+    </ng-template>
 
     <c-carousel [interval]="5000" transition="slide" [dark]="true" transition="crossfade">
         <c-carousel-indicators></c-carousel-indicators>
         <c-carousel-inner>
             <c-carousel-item *ngFor="let image of images">
-                <div>
                     <img [src]="image" alt="Project Image"/>
-                </div>
             </c-carousel-item>
         </c-carousel-inner>
         <c-carousel-control [routerLink] caption="Previous" direction="prev"></c-carousel-control>

@@ -1,0 +1,10 @@
+Convert2Grams is a simple React web application. This application can be used convert cooking/baking ingredients from traditional measurements, such as cups, to grams.
+
+Convert2Grams is hosted using Google Firebase, and can be accessed using the link above.
+
+---
+
+* This project is a work in progress.
+
+Future features:
+- Recipe copy-paste to parse all measurements at once and convert.

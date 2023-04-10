@@ -44,3 +44,19 @@ export const RTC: Project = {
     ],
     description: '/assets/rtc/description.txt'
 }
+
+export const CTG: Project = {
+    name: 'Convert2Grams',
+    link: 'https://convert2grams.web.app/',
+    images: [
+        '../assets/c2g/convert.png',
+    ],
+    techstack: [
+        'React',
+        'Typescript',
+        'HTML',
+        'CSS',
+        'Google Firebase Hosting',
+    ],
+    description: '/assets/c2g/description.txt'
+}
