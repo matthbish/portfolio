@@ -1,0 +1,25 @@
+
+<div class="parent">
+    <h1>Summary:</h1>
+    <p>{{ summary }}</p>
+
+    <h1>Education:</h1>
+    <h2>Wentworth Institute of Technology</h2>
+    <ul>
+        <li><b>Bachelor of Science in Computer Science</b></li>
+        <li><b>Minor in Applied Mathematics</b></li>
+        <li>Graduated Magna Cum Laude</li>
+        <li>GPA: 3.9/4.0</li>
+        <li>7x Dean's ist</li>
+    </ul>
+
+    <h1>Skills:</h1>
+    <ng-container *ngFor="let skill of skills">
+        <h2>{{ skill.label }}:</h2>
+        <mat-grid-list cols="3" rowHeight="15:1">
+            <mat-grid-tile *ngFor="let el of skill.arr">
+                <li>{{ el }}</li>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </ng-container>
+</div>

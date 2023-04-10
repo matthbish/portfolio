@@ -10,11 +10,13 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { HttpClientModule } from '@angular/common/http';
 import { CarouselModule } from '@coreui/angular';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProjectComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,

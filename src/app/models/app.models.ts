@@ -5,3 +5,8 @@ export interface Project {
     techstack: string[];
     description: string;
 }
+
+export interface Skill {
+    label: string;
+    arr: string[];
+}

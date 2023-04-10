@@ -60,3 +60,19 @@ export const CTG: Project = {
     ],
     description: '/assets/c2g/description.txt'
 }
+
+export const SIMPLE_FOCUS: Project = {
+    name: 'Simple Focus',
+    link: 'https://play.google.com/store/apps/details?id=rrg.app.simplefocus',
+    images: [
+        '../assets/simple-focus/timer.png',
+        '../assets/simple-focus/dialog.png',
+        '../assets/simple-focus/icon.png',
+        '../assets/simple-focus/banner.png',
+    ],
+    techstack: [
+        'Kotlin',
+        'Android',
+    ],
+    description: '/assets/simple-focus/description.txt'
+}

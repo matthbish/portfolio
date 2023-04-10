@@ -1,0 +1,20 @@
+.parent {
+    padding: 4rem;
+}
+
+h2 {
+    margin-bottom: .5rem;
+}
+
+::ng-deep .mat-grid-tile-content {
+    justify-content: flex-start !important;
+}
+
+p {
+    white-space: pre-line;
+    margin-bottom: 4rem;
+}
+
+ul {
+    margin-bottom: 4rem;
+}
