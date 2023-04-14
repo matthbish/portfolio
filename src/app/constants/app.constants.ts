@@ -45,6 +45,24 @@ export const RTC: Project = {
     description: '/assets/rtc/description.txt'
 }
 
+export const RRGv2: Project = {
+    name: 'Running Route Generator v2',
+    images: [
+        '../assets/rrg-v2/map.png',
+        '../assets/rrg-v2/route.png',
+    ],
+    techstack: [
+        'Angular',
+        'Typescript',
+        'HTML',
+        'SCSS',
+        'Google Maps',
+        'Google Firebase',
+        'Google Ads',
+    ],
+    description: '/assets/rrg-v2/description.txt'
+}
+
 export const CTG: Project = {
     name: 'Convert2Grams',
     link: 'https://convert2grams.web.app/',

@@ -1,0 +1,15 @@
+This is the *in progress* version 2 of the Running Route Generator. The goal of this project is to simplify the user experience, and tackle the Google API usage issues that resulted in the decommisioning of version 1.
+
+The Running Route Generator is aan Angukar application that provides a unique experience for avid runners. Select from loops, segments, and out & backs. Select from cardinal directions. Input location, distance, elevation gain, and search radius. With this, RRG will generate a route for you that can be saved to your library.
+
+Custom route drawing:
+You can draw custom routes by dropping markers on a map. RRG will measure distance, elevation gain, and elevation loss for all routes including your custom routes. 
+
+Live GPS location tracking:
+Opening one of your saved routes will open the route in a map, including a marker for your current location which will provide live tracking allowing you to look at your progress along your route throughout your run.
+
+The Running Route Generator is designed to work in any country for various activities such as: running, walking, cycling/biking, etc.
+
+---
+
+* This project is a work in progress.
