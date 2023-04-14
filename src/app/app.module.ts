@@ -8,6 +8,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
 import { HttpClientModule } from '@angular/common/http';
 import { CarouselModule } from '@coreui/angular';
 import { AboutComponent } from './about/about.component';
@@ -27,7 +29,9 @@ import { AboutComponent } from './about/about.component';
     MatTabsModule,
     MatGridListModule,
     HttpClientModule,
-    CarouselModule
+    CarouselModule,
+    MatCardModule,
+    MatDividerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

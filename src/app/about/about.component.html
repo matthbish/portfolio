@@ -4,27 +4,42 @@
     <p>{{ summary }}</p>
 
     <h1>Education:</h1>
-    <h2>Wentworth Institute of Technology</h2>
-    <ul class="parent-list">
-        <li><b>Bachelor of Science in Computer Science</b></li>
-        <li><b>Minor in Applied Mathematics</b></li>
-        <li>Graduated Magna Cum Laude</li>
-        <li>GPA: 3.9/4.0</li>
-        <li>7x Dean's ist</li>
-    </ul>
+    <h2>Wentworth Institute of Technology (Boston, MA)</h2>
+    <div class="bottom-margin flex">
+        <ul>
+            <li><b>Bachelor of Science in Computer Science</b></li>
+            <li><b>Minor in Applied Mathematics</b></li>
+            <li>Graduated Magna Cum Laude</li>
+            <li>GPA: 3.9/4.0</li>
+            <li>7x Dean's ist</li>
+        </ul>
+        <img src="../assets/about/wit.jpg" height="200px" alt="Project Image"/>
+    </div>
 
-    <h1>Skills:</h1>
+    <mat-divider class="bottom-margin"></mat-divider>
+
+    <div class="flex small-gap">
+        <h1>Skills:</h1>
+        <img src="../assets/about/angular.png" height="30px" alt="Project Image"/>
+        <img src="../assets/about/java.png" height="30px" alt="Project Image"/>
+        <img src="../assets/about/html.png" height="30px" alt="Project Image"/>
+        <img src="../assets/about/css.svg" height="30px" alt="Project Image"/>
+        <img src="../assets/about/ts.png" height="30px" alt="Project Image"/>
+        <img src="../assets/about/android.png" height="30px" alt="Project Image"/>
+    </div>
     <ng-container *ngFor="let skill of skills">
         <h2>{{ skill.label }}:</h2>
-        <mat-grid-list cols="3" rowHeight="1.5rem">
+        <mat-grid-list class="bottom-margin" cols="3" rowHeight="1.5rem">
             <mat-grid-tile *ngFor="let el of skill.arr">
                 <li>{{ el }}</li>
             </mat-grid-tile>
         </mat-grid-list>
     </ng-container>
 
+    <mat-divider class="bottom-margin"></mat-divider>
+
     <h1>Links:</h1>
-    <ul class="parent-list">
+    <ul class="bottom-margin">
         <li>
             <a href="https://github.com/matthbish" target="_blank">GitHub</a>
             <ul>

@@ -1,10 +1,10 @@
 <div class="parent">
-    <a *ngIf="project.link; else title" [href]="project.link" target="_blank">{{ project.name }}</a>
+    <a *ngIf="project.link; else title" [href]="project.link" class="bottom-margin" target="_blank">{{ project.name }}</a>
     <ng-template #title>
-        <h1 class="title">{{ project.name }}</h1>
+        <h1 class="title bottom-margin">{{ project.name }}</h1>
     </ng-template>
 
-    <c-carousel [interval]="5000" transition="slide" [dark]="true" transition="crossfade">
+    <c-carousel class="bottom-margin" [interval]="5000" transition="slide" [dark]="true" transition="crossfade">
         <c-carousel-indicators></c-carousel-indicators>
         <c-carousel-inner>
             <c-carousel-item *ngFor="let image of project.images">
@@ -14,11 +14,15 @@
         <c-carousel-control [routerLink] caption="Previous" direction="prev"></c-carousel-control>
         <c-carousel-control [routerLink] caption="Next" direction="next"></c-carousel-control>
     </c-carousel>
+
+    <mat-divider class="bottom-margin"></mat-divider>
     
     <h1>Techstack</h1>
-    <ul>
+    <ul class="bottom-margin">
         <li *ngFor="let tech of project.techstack">{{ tech }}</li>
     </ul>
+
+    <mat-divider class="bottom-margin"></mat-divider>
     
     <h1>Description</h1>
     <p>{{ project.description }}</p>

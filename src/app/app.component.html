@@ -5,7 +5,19 @@
 </p>
 
 <mat-tab-group>
-  <mat-tab label="About"> <app-about></app-about> </mat-tab>
+  <mat-tab label="About">
+    <mat-card>
+      <mat-card-content>
+        <app-about></app-about>
+      </mat-card-content>
+    </mat-card>
+  </mat-tab>
   <!-- <mat-tab label="Project 1"> <app-project></app-project> </mat-tab> -->
-  <mat-tab *ngFor="let project of projects" [label]="project.name"> <app-project [project]="project"></app-project> </mat-tab>
+  <mat-tab *ngFor="let project of projects" [label]="project.name">
+    <mat-card>
+      <mat-card-content>
+        <app-project [project]="project"></app-project>
+      </mat-card-content>
+    </mat-card>
+</mat-tab>
 </mat-tab-group>
