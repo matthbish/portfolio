@@ -1,4 +1,4 @@
-The Running Route Generator is a completely Android application that provides a unique experience for avid runners. Select from loops, segments, and out & backs. Select from cardinal directions. Input location, distance, elevation gain, and search radius. With this, RRG will generate a route for you that can be saved to your library.
+The Running Route Generator is an Android application that provides a unique experience for avid runners. Select from loops, segments, and out & backs. Select from cardinal directions. Input location, distance, elevation gain, and search radius. With this, RRG will generate a route for you that can be saved to your library.
 
 Custom route drawing:
 You can draw custom routes by dropping markers on a map. RRG will measure distance, elevation gain, and elevation loss for all routes including your custom routes. 
