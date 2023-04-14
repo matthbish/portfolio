@@ -1,6 +1,6 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Project } from './models/app.models';
-import { CTG, RRG, RTC, SIMPLE_FOCUS } from './constants/app.constants';
+import { CTG, NUTRITION_LABEL_READER, RRG, RTC, SIMPLE_FOCUS } from './constants/app.constants';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -10,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AppComponent implements OnInit {
 
-  projects: Project[] = [RRG, RTC, CTG, SIMPLE_FOCUS];
+  projects: Project[] = [RRG, RTC, CTG, SIMPLE_FOCUS, NUTRITION_LABEL_READER];
 
   constructor(private http: HttpClient, private cdRef: ChangeDetectorRef) {}
   

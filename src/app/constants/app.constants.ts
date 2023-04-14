@@ -77,3 +77,19 @@ export const SIMPLE_FOCUS: Project = {
     ],
     description: '/assets/simple-focus/description.txt'
 }
+
+export const NUTRITION_LABEL_READER: Project = {
+    name: 'Nutrition Label Reader',
+    images: [
+        '../assets/nutrition-label/ui.png',
+        '../assets/nutrition-label/label-extract-1.png',
+        '../assets/nutrition-label/label-extract-2.png',
+        '../assets/nutrition-label/label-extract-3.png',
+        '../assets/nutrition-label/extracted-text.png',
+        '../assets/nutrition-label/user-flow.png',
+    ],
+    techstack: [
+        'Matlab',
+    ],
+    description: '/assets/nutrition-label/description.txt'
+}
