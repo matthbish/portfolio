@@ -16,7 +16,7 @@ export class AboutComponent implements OnInit {
     },
     {
       label: 'Frameworks',
-      arr: ['Spring Boot', 'Axon', 'Angular', 'REST', 'MongoDB', 'RabbitMQ', 'React', 'Aeon', 'CICD', 'CQRS']
+      arr: ['Spring Boot', 'Axon', 'Angular', 'Jest', 'REST', 'MongoDB', 'RabbitMQ', 'React', 'Aeon', 'CICD', 'CQRS']
     },
     {
       label: 'Software',

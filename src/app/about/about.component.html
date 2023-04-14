@@ -5,7 +5,7 @@
 
     <h1>Education:</h1>
     <h2>Wentworth Institute of Technology</h2>
-    <ul>
+    <ul class="parent-list">
         <li><b>Bachelor of Science in Computer Science</b></li>
         <li><b>Minor in Applied Mathematics</b></li>
         <li>Graduated Magna Cum Laude</li>
@@ -16,10 +16,21 @@
     <h1>Skills:</h1>
     <ng-container *ngFor="let skill of skills">
         <h2>{{ skill.label }}:</h2>
-        <mat-grid-list cols="3" rowHeight="15:1">
+        <mat-grid-list cols="3" rowHeight="1.5rem">
             <mat-grid-tile *ngFor="let el of skill.arr">
                 <li>{{ el }}</li>
             </mat-grid-tile>
         </mat-grid-list>
     </ng-container>
+
+    <h1>Links:</h1>
+    <ul class="parent-list">
+        <li>
+            <a href="https://github.com/matthbish" target="_blank">GitHub</a>
+            <ul>
+                <li>Many repositories are private for security reasons.</li>
+            </ul>
+        </li>
+        <li><a href="https://www.linkedin.com/in/matthbish/" target="_blank">LinkedIn</a></li>
+    </ul>
 </div>

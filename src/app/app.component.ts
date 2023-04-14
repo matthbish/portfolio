@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Project } from './models/app.models';
 import { CTG, RRG, RTC, SIMPLE_FOCUS } from './constants/app.constants';
 import { HttpClient } from '@angular/common/http';
@@ -10,17 +10,15 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AppComponent implements OnInit {
 
-  projects: Project[] = [];
+  projects: Project[] = [RRG, RTC, CTG, SIMPLE_FOCUS];
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private cdRef: ChangeDetectorRef) {}
   
   ngOnInit(): void {
-    [RRG, RTC, CTG, SIMPLE_FOCUS].forEach(project => {
+    this.projects.forEach(project => {
       this.http.get(project.description, { responseType: 'text' }).subscribe(data => {
         project.description = data;
-        this.projects.push(project);
       });
     });
   }
-  
 }

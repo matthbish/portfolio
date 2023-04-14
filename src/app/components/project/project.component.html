@@ -1,13 +1,13 @@
 <div class="parent">
-    <a *ngIf="link; else title" [href]="link" target="_blank">{{ name }}</a>
+    <a *ngIf="project.link; else title" [href]="project.link" target="_blank">{{ project.name }}</a>
     <ng-template #title>
-        <h1 class="title" href="https://convert2grams.web.app/">{{ name }}</h1>
+        <h1 class="title">{{ project.name }}</h1>
     </ng-template>
 
     <c-carousel [interval]="5000" transition="slide" [dark]="true" transition="crossfade">
         <c-carousel-indicators></c-carousel-indicators>
         <c-carousel-inner>
-            <c-carousel-item *ngFor="let image of images">
+            <c-carousel-item *ngFor="let image of project.images">
                 <img [src]="image" alt="Project Image"/>
             </c-carousel-item>
         </c-carousel-inner>
@@ -17,10 +17,10 @@
     
     <h1>Techstack</h1>
     <ul>
-        <li *ngFor="let tech of techstack">{{ tech }}</li>
+        <li *ngFor="let tech of project.techstack">{{ tech }}</li>
     </ul>
     
     <h1>Description</h1>
-    <p>{{ description }}</p>
+    <p>{{ project.description }}</p>
 </div>
 
