@@ -1,5 +1,5 @@
 .parent {
-    padding: 4rem;
+    padding: 4rem 2rem;
 
     h2 {
         margin-bottom: .5rem;
@@ -17,6 +17,25 @@
     .flex {
         display: flex;
         gap: 4rem;
+        flex-wrap: wrap;
+    }
+
+    .wit {
+        max-width: 100%;
+        max-height: 200px;
+    }
+
+    .skills-parent {
+        max-width: 100%;
+        overflow: auto;
+
+        mat-grid-list {
+            min-width: 30rem;
+    
+            mat-grid-tile {
+                min-width: 10rem;
+            }
+        }
     }
 
     .small-gap {

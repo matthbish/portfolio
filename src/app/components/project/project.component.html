@@ -17,14 +17,18 @@
 
     <mat-divider class="bottom-margin"></mat-divider>
     
-    <h1>Techstack</h1>
-    <ul class="bottom-margin">
-        <li *ngFor="let tech of project.techstack">{{ tech }}</li>
-    </ul>
+    <div class="text">
+        <h1>Techstack</h1>
+        <ul class="bottom-margin">
+            <li *ngFor="let tech of project.techstack">{{ tech }}</li>
+        </ul>
+    </div>
 
     <mat-divider class="bottom-margin"></mat-divider>
     
-    <h1>Description</h1>
-    <p>{{ project.description }}</p>
+    <div class="text">
+        <h1>Description</h1>
+        <p>{{ project.description }}</p>
+    </div>
 </div>
 
