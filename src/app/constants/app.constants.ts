@@ -47,9 +47,12 @@ export const RTC: Project = {
 
 export const RRGv2: Project = {
     name: 'Running Route Generator v2',
+    link: 'https://running-route-generator-v2.web.app/',
     images: [
         '../assets/rrg-v2/map.png',
         '../assets/rrg-v2/route.png',
+        '../assets/rrg-v2/save.png',
+        '../assets/rrg-v2/list.png',
     ],
     techstack: [
         'Angular',
