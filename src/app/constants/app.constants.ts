@@ -47,7 +47,6 @@ export const RTC: Project = {
 
 export const RRGv2: Project = {
     name: 'Running Route Generator v2',
-    link: 'https://running-route-generator-v2.web.app/',
     images: [
         '../assets/rrg-v2/map.png',
         '../assets/rrg-v2/route.png',
@@ -85,7 +84,6 @@ export const CTG: Project = {
 
 export const SIMPLE_FOCUS: Project = {
     name: 'Simple Focus',
-    link: 'https://play.google.com/store/apps/details?id=rrg.app.simplefocus',
     images: [
         '../assets/simple-focus/timer.png',
         '../assets/simple-focus/dialog.png',

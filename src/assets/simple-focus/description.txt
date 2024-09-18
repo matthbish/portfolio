@@ -1,3 +1,5 @@
 Simple Focus is the simplest possible application to track your focus time on a daily and overall basis. Get those focus numbers up!
 
-This app is available on Google Play, and can be accessed using the link above.
+---
+
+* This project was formerly released on Google Play, but removed due to Google policy changes.
