@@ -1,0 +1,142 @@
+:host {
+  display: block;
+}
+
+.projects-page {
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.flagship-grid {
+  display: grid;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.flagship-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 1.5rem;
+  align-items: start;
+  border: 1px solid var(--border-color);
+  border-radius: 0.75rem;
+  background: var(--surface);
+  overflow: hidden;
+
+  @media (max-width: 48rem) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.flagship-hero-link {
+  display: block;
+}
+
+.flagship-hero {
+  width: 100%;
+  height: 100%;
+  min-height: 14rem;
+  object-fit: cover;
+  display: block;
+}
+
+.flagship-content {
+  padding: 1.5rem 1.5rem 1.5rem 0;
+
+  @media (max-width: 48rem) {
+    padding: 0 1.5rem 1.5rem;
+  }
+}
+
+.flagship-title {
+  margin: 0 0 0.5rem;
+  font-size: 1.5rem;
+
+  a {
+    color: var(--text-primary);
+    text-decoration: none;
+
+    &:hover {
+      color: var(--accent);
+    }
+  }
+}
+
+.flagship-tagline {
+  margin: 0 0 0.75rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.flagship-summary {
+  margin: 0 0 1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 0.9375rem;
+}
+
+.flagship-badges,
+.smaller-badges {
+  list-style: none;
+  margin: 0 0 1.25rem;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+}
+
+.flagship-links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.external-link {
+  color: var(--accent);
+  font-weight: 500;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.smaller-section {
+  margin-top: 3.5rem;
+}
+
+.smaller-list {
+  list-style: none;
+  margin-top: 1.5rem;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  gap: 1rem;
+}
+
+.smaller-item {
+  padding: 1.25rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.625rem;
+  background: var(--surface);
+}
+
+.smaller-link {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-decoration: none;
+
+  &:hover {
+    color: var(--accent);
+  }
+}
+
+.smaller-tagline {
+  margin: 0.375rem 0 0.875rem;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}

@@ -1,16 +1,92 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Portfolio</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-</head>
-<body class="mat-typography custom-background">
-  <app-root></app-root>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <title>Matthew Bishop — Software Engineer</title>
+    <!-- Angular CLI rewrites this href at build time: "/" for dev, "/portfolio/" for GitHub Pages production -->
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!--
+    Decodes the query-string path encoded by public/404.html's GitHub Pages
+    SPA fallback (see docs/adr/0005-github-pages-hosting.md) back into a real
+    path via history.replaceState, before the Angular router reads the URL.
+  -->
+    <script>
+      (function (loc) {
+        if (loc.search[1] !== '/') {
+          return;
+        }
+        var decoded = loc.search
+          .slice(2)
+          .split('&')
+          .map(function (segment) {
+            return segment.replace(/~and~/g, '&');
+          })
+          .join('?');
+        window.history.replaceState(null, '', loc.pathname + decoded + loc.hash);
+      })(window.location);
+    </script>
+    <meta
+      name="description"
+      content="Portfolio of Matthew Bishop, a software engineer building polished, maintainable, production-quality software across web and mobile."
+    />
+    <meta name="author" content="Matthew Bishop" />
+    <meta name="theme-color" content="#1a1a1a" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Matthew Bishop — Software Engineer" />
+    <meta property="og:title" content="Matthew Bishop — Software Engineer" />
+    <meta
+      property="og:description"
+      content="Portfolio of Matthew Bishop, a software engineer building polished, maintainable, production-quality software across web and mobile."
+    />
+    <meta property="og:url" content="https://matthbish.github.io/portfolio/" />
+    <meta
+      property="og:image"
+      content="https://matthbish.github.io/portfolio/assets/project/project.png"
+    />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Matthew Bishop — Software Engineer" />
+    <meta
+      name="twitter:description"
+      content="Portfolio of Matthew Bishop, building polished, maintainable, production-quality software."
+    />
+    <meta
+      name="twitter:image"
+      content="https://matthbish.github.io/portfolio/assets/project/project.png"
+    />
+
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="canonical" href="https://matthbish.github.io/portfolio/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Structured data: Person -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Matthew Bishop",
+        "url": "https://matthbish.github.io/portfolio/",
+        "jobTitle": "Software Engineer",
+        "description": "Software engineer specializing in modern web and mobile applications.",
+        "knowsAbout": [
+          "Angular",
+          "TypeScript",
+          "Java",
+          "Kotlin",
+          "Android",
+          "Web Development",
+          "AI Engineering"
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <app-root></app-root>
+  </body>
 </html>

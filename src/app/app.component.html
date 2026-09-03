@@ -1,23 +1,100 @@
-<p>
-  <mat-toolbar color="primary">
-    <span>Matthew Bishop's Portfolio</span>
-  </mat-toolbar>
-</p>
+<div class="app-shell">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
-<mat-tab-group>
-  <mat-tab label="About">
-    <mat-card>
-      <mat-card-content>
-        <app-about></app-about>
-      </mat-card-content>
-    </mat-card>
-  </mat-tab>
-  <!-- <mat-tab label="Project 1"> <app-project></app-project> </mat-tab> -->
-  <mat-tab *ngFor="let project of projects" [label]="project.name">
-    <mat-card>
-      <mat-card-content>
-        <app-project [project]="project"></app-project>
-      </mat-card-content>
-    </mat-card>
-</mat-tab>
-</mat-tab-group>
+  <header class="app-header">
+    <app-logo></app-logo>
+
+    <nav class="app-nav" aria-label="Primary">
+      <a
+        routerLink="/"
+        routerLinkActive="active"
+        #rlaHome="routerLinkActive"
+        [routerLinkActiveOptions]="{ exact: true }"
+        [attr.aria-current]="rlaHome.isActive ? 'page' : null"
+        >Home</a
+      >
+      <a
+        routerLink="/resume"
+        routerLinkActive="active"
+        #rlaResume="routerLinkActive"
+        [attr.aria-current]="rlaResume.isActive ? 'page' : null"
+        >Resume</a
+      >
+      <a
+        routerLink="/experience"
+        routerLinkActive="active"
+        #rlaExperience="routerLinkActive"
+        [attr.aria-current]="rlaExperience.isActive ? 'page' : null"
+        >Experience</a
+      >
+      <a
+        routerLink="/skills"
+        routerLinkActive="active"
+        #rlaSkills="routerLinkActive"
+        [attr.aria-current]="rlaSkills.isActive ? 'page' : null"
+        >Skills</a
+      >
+      <a
+        routerLink="/projects"
+        routerLinkActive="active"
+        #rlaProjects="routerLinkActive"
+        [attr.aria-current]="rlaProjects.isActive ? 'page' : null"
+        >Projects</a
+      >
+      <a
+        routerLink="/ai-experience"
+        routerLinkActive="active"
+        #rlaAi="routerLinkActive"
+        [attr.aria-current]="rlaAi.isActive ? 'page' : null"
+        >AI</a
+      >
+      <a
+        routerLink="/contact"
+        routerLinkActive="active"
+        #rlaContact="routerLinkActive"
+        [attr.aria-current]="rlaContact.isActive ? 'page' : null"
+        >Contact</a
+      >
+    </nav>
+
+    <div class="header-actions">
+      <button
+        type="button"
+        class="palette-trigger"
+        (click)="keyboardShortcuts.paletteOpen.set(true)"
+        aria-label="Open command palette"
+        title="Open command palette (Ctrl+K)"
+      >
+        <span aria-hidden="true">⌘</span>
+        <kbd>Ctrl K</kbd>
+      </button>
+
+      <button
+        type="button"
+        class="theme-toggle"
+        (click)="themeService.toggle()"
+        [attr.aria-label]="themeService.isDark() ? 'Switch to light mode' : 'Switch to dark mode'"
+        [title]="themeService.isDark() ? 'Switch to light mode' : 'Switch to dark mode'"
+      >
+        {{ themeService.isDark() ? '☀︎' : '☾' }}
+      </button>
+    </div>
+  </header>
+
+  <main id="main-content" class="app-content" tabindex="-1">
+    <router-outlet></router-outlet>
+  </main>
+
+  <app-footer></app-footer>
+
+  <app-command-palette></app-command-palette>
+
+  <app-easter-eggs-modal></app-easter-eggs-modal>
+
+  @if (keyboardShortcuts.konamiActivated()) {
+    <div class="konami-toast" role="status" aria-live="polite">
+      <span aria-hidden="true">▲▲▼▼◀▶◀▶BA</span>
+      <p>Konami code accepted. You found the easter egg.</p>
+    </div>
+  }
+</div>

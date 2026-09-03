@@ -1,0 +1,94 @@
+<div class="experience-page">
+  <app-section-heading
+    level="h1"
+    eyebrow="Career"
+    title="Experience"
+    description="Five years building production software full-time. Personal projects live separately and go deeper into the engineering."
+    [fullWidthDescription]="true"
+  />
+
+  <div class="resume-cta">
+    <app-button [href]="resumeUrl" [download]="downloadFilename">Download résumé (PDF)</app-button>
+    <app-button href="/resume" variant="ghost">View résumé PDF</app-button>
+  </div>
+
+  <section class="block" aria-labelledby="work-heading">
+    <h2 id="work-heading" class="block-title">Work Experience</h2>
+    @for (role of roles; track role.company) {
+      <section class="role">
+        <div class="role-header">
+          <h3 class="role-title">{{ role.title }}</h3>
+          @if (role.current) {
+            <app-badge variant="accent">Current</app-badge>
+          }
+        </div>
+        <p class="role-company">
+          {{ role.company }} · {{ role.start }} — {{ role.current ? 'Present' : role.end }}
+          @if (role.location) {
+            · {{ role.location }}
+          }
+        </p>
+        <p class="role-summary">{{ role.summary }}</p>
+        <ul class="role-highlights">
+          @for (highlight of role.highlights; track highlight) {
+            <li>{{ highlight }}</li>
+          }
+        </ul>
+        <div class="role-tech">
+          @for (tech of role.techStack; track tech) {
+            <app-badge variant="subtle">{{ tech }}</app-badge>
+          }
+        </div>
+      </section>
+    }
+  </section>
+
+  <section class="block" aria-labelledby="education-heading">
+    <h2 id="education-heading" class="block-title">Education</h2>
+    @for (school of education; track school.institution) {
+      <section class="role">
+        <div class="role-header">
+          <h3 class="role-title">{{ school.degree }}</h3>
+        </div>
+        <p class="role-company">
+          {{ school.institution }}
+          @if (school.location) {
+            · {{ school.location }}
+          }
+          · Graduated {{ school.graduated }}
+        </p>
+        @if (school.minor) {
+          <p class="role-summary">Minor in {{ school.minor }}.</p>
+        }
+        <ul class="role-highlights">
+          @if (school.gpa) {
+            <li>GPA: {{ school.gpa }}</li>
+          }
+          @for (honor of school.honors; track honor) {
+            <li>{{ honor }}</li>
+          }
+          @for (activity of school.activities; track activity) {
+            <li>{{ activity }}</li>
+          }
+        </ul>
+      </section>
+    }
+  </section>
+
+  <section class="block" aria-labelledby="credentials-heading">
+    <h2 id="credentials-heading" class="block-title">Certifications & Clearances</h2>
+    <ul class="credentials-list">
+      @for (credential of credentials; track credential.name) {
+        <li class="credential">
+          <span class="credential-name">{{ credential.name }}</span>
+          <span class="credential-date">
+            {{ credential.start }}
+            @if (credential.current) {
+              — Present
+            }
+          </span>
+        </li>
+      }
+    </ul>
+  </section>
+</div>

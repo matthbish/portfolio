@@ -1,0 +1,109 @@
+<section class="hero" aria-labelledby="hero-title">
+  <p class="hero-kicker">Software Engineer · TS/SCI Cleared</p>
+  <h1 id="hero-title" class="hero-title">Matthew Bishop</h1>
+  <p class="hero-lede">
+    Full-stack software engineer with five years of experience building production applications in
+    Java, Spring Boot, Angular, and more.
+  </p>
+  <div class="hero-actions">
+    <app-button [href]="'/experience'" size="lg">View my experience</app-button>
+    <app-button [href]="'/resume'" variant="secondary" size="lg">Download résumé</app-button>
+    <app-button [href]="'/contact'" variant="ghost" size="lg">Get in touch</app-button>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="snapshot-title">
+  <app-section-heading eyebrow="At a glance" title="Snapshot" />
+  <div class="snapshot-grid">
+    @for (fact of snapshot; track fact.label) {
+      <div class="snapshot-card">
+        <p class="snapshot-value">{{ fact.value }}</p>
+        <p class="snapshot-label">{{ fact.label }}</p>
+      </div>
+    }
+  </div>
+</section>
+
+<section class="section" aria-labelledby="values-title">
+  <app-section-heading
+    eyebrow="Principles"
+    title="What I value"
+    description="The engineering principles that guide every project I build."
+  />
+  <div class="values-grid">
+    @for (value of values; track value.title) {
+      <article class="value-card">
+        <h3>{{ value.title }}</h3>
+        <p>{{ value.description }}</p>
+      </article>
+    }
+  </div>
+</section>
+
+<section class="section" aria-labelledby="experience-title">
+  <app-section-heading
+    eyebrow="Professional experience"
+    title="Where I've worked"
+    description="Full-time roles building production software — the bulk of my engineering time. Full write-up, education, and certifications on the Experience page."
+  />
+  <div class="role-preview-grid">
+    @for (role of roles; track role.company) {
+      <app-card>
+        <div class="role-preview-header">
+          <h3 class="role-preview-title">{{ role.title }}</h3>
+          @if (role.current) {
+            <app-badge variant="accent">Current</app-badge>
+          }
+        </div>
+        <p class="role-preview-company">
+          {{ role.company }} · {{ role.start }} — {{ role.current ? 'Present' : role.end }}
+        </p>
+        <p class="role-preview-summary">{{ role.summary }}</p>
+      </app-card>
+    }
+  </div>
+  <div class="view-all">
+    <app-button [href]="'/experience'" variant="ghost">
+      See full experience, education & certifications
+    </app-button>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="featured-title">
+  <app-section-heading
+    eyebrow="Outside of work"
+    [title]="'Selected personal projects'"
+    description="A smaller slice of my time than my full-time engineering role, but a look at how I build for myself."
+  />
+  <div class="project-card-grid">
+    @for (project of flagshipProjects().slice(0, 2); track project.slug) {
+      <app-card>
+        @if (project.heroImage) {
+          <img
+            class="project-hero"
+            [src]="project.heroImage"
+            [alt]="project.name + ' screenshot'"
+            loading="lazy"
+            width="1200"
+            height="675"
+          />
+        }
+        <h3 class="project-title">{{ project.name }}</h3>
+        <p class="project-tagline">{{ project.tagline }}</p>
+        <ul class="project-badges" aria-label="Technologies">
+          @for (tech of project.techStack.slice(0, 5); track tech) {
+            <li>
+              <app-badge>{{ tech }}</app-badge>
+            </li>
+          }
+        </ul>
+        <app-button [href]="'/projects/' + project.slug" variant="secondary">
+          Read case study
+        </app-button>
+      </app-card>
+    }
+  </div>
+  <div class="view-all">
+    <app-button [href]="'/projects'" variant="ghost">View all projects</app-button>
+  </div>
+</section>

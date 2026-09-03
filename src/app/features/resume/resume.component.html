@@ -1,0 +1,27 @@
+<div class="resume-page">
+  <app-section-heading
+    level="h1"
+    eyebrow="Résumé"
+    title="Resume"
+    description="My résumé, kept current. Prefer a scannable web page? See it broken out on the Experience page."
+    [fullWidthDescription]="true"
+  />
+
+  <div class="resume-actions">
+    <app-button [href]="resumeUrl" [download]="downloadFilename" size="lg">
+      Download PDF
+    </app-button>
+    <app-button href="/experience" variant="secondary" size="lg">View as a page</app-button>
+    <a class="external-link" [href]="resumeUrl" target="_blank" rel="noopener noreferrer">
+      Open in new tab ↗<span class="sr-only"> (opens in new window)</span>
+    </a>
+  </div>
+
+  <div class="resume-viewer">
+    <iframe [src]="resumeEmbedUrl" title="Matthew Bishop's résumé" class="resume-frame"></iframe>
+    <p class="resume-fallback">
+      Preview not loading?
+      <a [href]="resumeUrl" target="_blank" rel="noopener noreferrer">Open the PDF directly</a>.
+    </p>
+  </div>
+</div>

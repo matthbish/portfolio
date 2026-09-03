@@ -1,35 +1,44 @@
-import { TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
 import { AppComponent } from './app.component';
+import { ThemeService } from './core/services/theme.service';
+import { KeyboardShortcutService } from './core/services/keyboard-shortcut.service';
 
 describe('AppComponent', () => {
+  let fixture: ComponentFixture<AppComponent>;
+  let component: AppComponent;
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule
-      ],
-      declarations: [
-        AppComponent
-      ],
+      imports: [AppComponent],
+      providers: [provideRouter([])]
     }).compileComponents();
+
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
   });
 
   it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+    expect(component).toBeTruthy();
   });
 
-  it(`should have as title 'portfolio'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('portfolio');
+  it('should expose the portfolio title', () => {
+    expect(component.title).toBe('Matthew Bishop — Software Engineer');
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
+  it('should render a skip link to main content', () => {
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('portfolio app is running!');
+    const skipLink = compiled.querySelector<HTMLAnchorElement>('a.skip-link');
+    expect(skipLink).toBeTruthy();
+    expect(skipLink?.getAttribute('href')).toBe('#main-content');
+  });
+
+  it('should expose the theme service', () => {
+    expect(component.themeService).toBeInstanceOf(ThemeService);
+  });
+
+  it('should expose the keyboard shortcut service', () => {
+    expect(component.keyboardShortcuts).toBeInstanceOf(KeyboardShortcutService);
   });
 });

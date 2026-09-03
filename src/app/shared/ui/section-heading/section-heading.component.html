@@ -1,0 +1,13 @@
+@if (eyebrow()) {
+  <p class="eyebrow">{{ eyebrow() }}</p>
+}
+@if (level() === 'h1') {
+  <h1 class="title">{{ title() }}</h1>
+} @else if (level() === 'h2') {
+  <h2 class="title">{{ title() }}</h2>
+} @else {
+  <h3 class="title">{{ title() }}</h3>
+}
+@if (description()) {
+  <p class="description" [class.full-width]="fullWidthDescription()">{{ description() }}</p>
+}

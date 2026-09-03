@@ -6,114 +6,86 @@
     "portfolio": {
       "projectType": "application",
       "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        }
+        "@schematics/angular:component": { "style": "scss", "standalone": true },
+        "@schematics/angular:directive": { "standalone": true },
+        "@schematics/angular:pipe": { "standalone": true }
       },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular/build:application",
           "options": {
-            "outputPath": "dist/portfolio",
+            "outputPath": { "base": "dist/portfolio" },
             "index": "src/index.html",
-            "main": "src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
+            "browser": "src/main.ts",
+            "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
+              { "glob": "**/*", "input": "public" },
+              { "glob": "**/*", "input": "src/assets", "output": "/assets" }
             ],
-            "styles": [
-              "@angular/material/prebuilt-themes/deeppurple-amber.css",
-              "src/styles.scss"
-            ],
+            "styles": ["src/styles.scss"],
             "scripts": []
           },
           "configurations": {
             "production": {
               "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
-                }
+                { "type": "initial", "maximumWarning": "350kb", "maximumError": "500kb" },
+                { "type": "anyComponentStyle", "maximumWarning": "4kb", "maximumError": "8kb" },
+                { "type": "anyScript", "maximumWarning": "170kb", "maximumError": "300kb" }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "baseHref": "/portfolio/",
+              "optimization": true,
+              "sourceMap": false,
+              "extractLicenses": true
             },
             "development": {
-              "buildOptimizer": false,
               "optimization": false,
-              "vendorChunk": true,
               "extractLicenses": false,
-              "sourceMap": true,
-              "namedChunks": true
+              "sourceMap": true
             }
           },
           "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "@angular/build:dev-server",
           "configurations": {
-            "production": {
-              "browserTarget": "portfolio:build:production"
-            },
-            "development": {
-              "browserTarget": "portfolio:build:development"
-            }
+            "production": { "buildTarget": "portfolio:build:production" },
+            "development": { "buildTarget": "portfolio:build:development" }
           },
           "defaultConfiguration": "development"
         },
         "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "portfolio:build"
-          }
+          "builder": "@angular/build:extract-i18n",
+          "options": { "buildTarget": "portfolio:build" }
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@angular/build:karma",
           "options": {
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ],
+            "polyfills": ["zone.js", "zone.js/testing"],
             "tsConfig": "tsconfig.spec.json",
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
+              { "glob": "**/*", "input": "public" },
+              { "glob": "**/*", "input": "src/assets", "output": "/assets" }
             ],
-            "styles": [
-              "@angular/material/prebuilt-themes/deeppurple-amber.css",
-              "src/styles.scss"
-            ],
+            "styles": ["src/styles.scss"],
             "scripts": []
           }
         },
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": [
-              "src/**/*.ts",
-              "src/**/*.html"
-            ]
+            "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
           }
         }
       }
     }
   },
   "cli": {
-    "analytics": "d238d565-ae67-438d-9d0e-c22c2e22a9c3",
-    "schematicCollections": [
-      "@angular-eslint/schematics"
-    ]
+    "schematicCollections": ["@angular-eslint/schematics"]
   }
 }
+

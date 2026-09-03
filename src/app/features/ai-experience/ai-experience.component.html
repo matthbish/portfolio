@@ -1,0 +1,38 @@
+<div class="ai-page">
+  <app-section-heading
+    level="h1"
+    eyebrow="AI-native engineering"
+    title="AI Experience"
+    description="How I work alongside AI every day — as an accelerator for thinking, building, and reviewing."
+    [fullWidthDescription]="true"
+  />
+  <div class="area-grid">
+    @for (area of areas; track area.title) {
+      <article class="area">
+        <h3 class="area-title">{{ area.title }}</h3>
+        <p class="area-description">{{ area.description }}</p>
+        <div class="area-tools">
+          @for (tool of area.tools; track tool) {
+            <app-badge variant="subtle">{{ tool }}</app-badge>
+          }
+        </div>
+      </article>
+    }
+  </div>
+
+  <app-section-heading
+    eyebrow="Roadmap"
+    title="Future AI projects"
+    description="Space intentionally reserved — the best AI work is still ahead."
+    [fullWidthDescription]="true"
+  />
+  <ul class="future-list">
+    @for (idea of futureIdeas; track idea) {
+      <li>{{ idea }}</li>
+    }
+  </ul>
+
+  <div class="ai-cta">
+    <app-button [href]="'/contact'" variant="secondary">Talk about AI engineering</app-button>
+  </div>
+</div>
