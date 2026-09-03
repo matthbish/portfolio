@@ -20,7 +20,7 @@ import { SeoService, SITE_URL } from '../../core/services/seo.service';
 export class ResumeComponent {
   private readonly sanitizer = inject(DomSanitizer);
 
-  readonly resumeUrl = '/assets/resume.pdf';
+  readonly resumeUrl = 'assets/resume.pdf';
   readonly downloadFilename = 'Matthew-Bishop-Resume.pdf';
   /** iframe[src] requires an explicitly-trusted resource URL, unlike plain <a href>. */
   readonly resumeEmbedUrl: SafeResourceUrl = this.sanitizer.bypassSecurityTrustResourceUrl(

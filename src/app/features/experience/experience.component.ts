@@ -23,7 +23,7 @@ export class ExperienceComponent {
   readonly roles = ROLES;
   readonly education = EDUCATION;
   readonly credentials = CREDENTIALS;
-  readonly resumeUrl = '/assets/resume.pdf';
+  readonly resumeUrl = 'assets/resume.pdf';
   readonly downloadFilename = 'Matthew-Bishop-Resume.pdf';
 
   constructor() {

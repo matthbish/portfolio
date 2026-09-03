@@ -16,8 +16,8 @@ export const PROJECTS: readonly Project[] = [
     flagship: true,
     demoUrl: 'https://matthbish.github.io/portfolio/',
     githubUrl: 'https://github.com/matthbish/portfolio',
-    heroImage: '/assets/logo/logo.jpg',
-    images: ['/assets/logo/logo.jpg'],
+    heroImage: 'assets/logo/logo.jpg',
+    images: ['assets/logo/logo.jpg'],
     techStack: [
       'Angular 20',
       'TypeScript',
@@ -86,14 +86,14 @@ export const PROJECTS: readonly Project[] = [
       'An Android application that generates running, walking, and cycling routes from user-defined parameters — distance, elevation, direction, and location — with custom route drawing, run planning, and live GPS tracking.',
     flagship: true,
     githubUrl: 'https://github.com/matthbish/running-route-generator',
-    heroImage: '/assets/rrg/graphic.jpg',
+    heroImage: 'assets/rrg/graphic.jpg',
     images: [
-      '/assets/rrg/generate-page.png',
-      '/assets/rrg/map-page.png',
-      '/assets/rrg/route-page.png',
-      '/assets/rrg/saved-routes.png',
-      '/assets/rrg/plan-page.png',
-      '/assets/rrg/icon.png'
+      'assets/rrg/generate-page.png',
+      'assets/rrg/map-page.png',
+      'assets/rrg/route-page.png',
+      'assets/rrg/saved-routes.png',
+      'assets/rrg/plan-page.png',
+      'assets/rrg/icon.png'
     ],
     techStack: ['Java', 'Kotlin', 'Android', 'Google Maps', 'Google Ads'],
     highlights: [
@@ -151,17 +151,17 @@ export const PROJECTS: readonly Project[] = [
       'An Android application with 30+ built-in training plans, custom plan creation, pace calculations, coaching tips, cross-training information, and personalized statistics.',
     flagship: true,
     githubUrl: 'https://github.com/matthbish/runners-training-center',
-    heroImage: '/assets/rtc/banner.jpg',
+    heroImage: 'assets/rtc/banner.jpg',
     images: [
-      '/assets/rtc/my-training.png',
-      '/assets/rtc/rating.png',
-      '/assets/rtc/pace.png',
-      '/assets/rtc/plans.png',
-      '/assets/rtc/plan.png',
-      '/assets/rtc/custom.png',
-      '/assets/rtc/cross-training.png',
-      '/assets/rtc/coaching.png',
-      '/assets/rtc/icon.png'
+      'assets/rtc/my-training.png',
+      'assets/rtc/rating.png',
+      'assets/rtc/pace.png',
+      'assets/rtc/plans.png',
+      'assets/rtc/plan.png',
+      'assets/rtc/custom.png',
+      'assets/rtc/cross-training.png',
+      'assets/rtc/coaching.png',
+      'assets/rtc/icon.png'
     ],
     techStack: ['Java', 'Kotlin', 'Android', 'Google Firebase', 'Google Ads'],
     highlights: [
@@ -210,12 +210,12 @@ export const PROJECTS: readonly Project[] = [
     summary:
       'An unfinished and archived Angular rewrite of the Running Route Generator, focused on simplifying the user experience and resolving the Google API usage issues that led to the decommissioning of v1.',
     flagship: false,
-    heroImage: '/assets/rrg-v2/map.png',
+    heroImage: 'assets/rrg-v2/map.png',
     images: [
-      '/assets/rrg-v2/map.png',
-      '/assets/rrg-v2/route.png',
-      '/assets/rrg-v2/save.png',
-      '/assets/rrg-v2/list.png'
+      'assets/rrg-v2/map.png',
+      'assets/rrg-v2/route.png',
+      'assets/rrg-v2/save.png',
+      'assets/rrg-v2/list.png'
     ],
     techStack: [
       'Angular',
@@ -265,8 +265,8 @@ export const PROJECTS: readonly Project[] = [
       'A simple React web application for converting cooking and baking ingredients from traditional measurements (cups, tablespoons) to grams. Hosted on Google Firebase.',
     flagship: false,
     demoUrl: 'https://convert2grams.web.app/',
-    heroImage: '/assets/c2g/convert.png',
-    images: ['/assets/c2g/convert.png'],
+    heroImage: 'assets/c2g/convert.png',
+    images: ['assets/c2g/convert.png'],
     techStack: ['Ionic', 'React', 'TypeScript', 'HTML', 'CSS', 'Google Firebase Hosting'],
     highlights: [
       'Converts cooking/baking measurements to grams',
@@ -301,11 +301,11 @@ export const PROJECTS: readonly Project[] = [
     summary:
       'The simplest possible Android application to track focus time on a daily and overall basis. Built with Kotlin.',
     flagship: false,
-    heroImage: '/assets/simple-focus/banner.png',
+    heroImage: 'assets/simple-focus/banner.png',
     images: [
-      '/assets/simple-focus/timer.png',
-      '/assets/simple-focus/dialog.png',
-      '/assets/simple-focus/banner.png'
+      'assets/simple-focus/timer.png',
+      'assets/simple-focus/dialog.png',
+      'assets/simple-focus/banner.png'
     ],
     techStack: ['Kotlin', 'Android'],
     highlights: [
@@ -337,14 +337,14 @@ export const PROJECTS: readonly Project[] = [
     summary:
       'A Matlab application developed for an Image Processing course that converts photos of nutrition labels to plain text using greyscale, flat field correction, contrast adjustments, top-hat filtering, binarization, and OCR. Also reads barcodes and fetches nutrition details via an API.',
     flagship: false,
-    heroImage: '/assets/nutrition-label/ui.png',
+    heroImage: 'assets/nutrition-label/ui.png',
     images: [
-      '/assets/nutrition-label/ui.png',
-      '/assets/nutrition-label/label-extract-1.png',
-      '/assets/nutrition-label/label-extract-2.png',
-      '/assets/nutrition-label/label-extract-3.png',
-      '/assets/nutrition-label/extracted-text.png',
-      '/assets/nutrition-label/user-flow.png'
+      'assets/nutrition-label/ui.png',
+      'assets/nutrition-label/label-extract-1.png',
+      'assets/nutrition-label/label-extract-2.png',
+      'assets/nutrition-label/label-extract-3.png',
+      'assets/nutrition-label/extracted-text.png',
+      'assets/nutrition-label/user-flow.png'
     ],
     techStack: ['Matlab', 'Image Processing', 'OCR'],
     highlights: [
