@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Matthew Bishop — Portfolio</title>
+  <script>
+    // GitHub Pages SPA fallback for path-based (non-hash) routing.
+    // GitHub Pages serves this file for any unknown path. We encode the
+    // requested path into a query string and redirect to the app's base
+    // URL; index.html then decodes it back into a real path via
+    // history.replaceState before Angular's router reads the URL.
+    (function () {
+      var base = '/portfolio/';
+      var loc = window.location;
+      var path = loc.pathname.slice(base.length);
+      var encoded = base + '?/' + path.replace(/&/g, '~and~') +
+        (loc.search ? '&' + loc.search.slice(1).replace(/&/g, '~and~') : '') +
+        loc.hash;
+      loc.replace(encoded);
+    })();
+  </script>
+</head>
+<body>
+  <p>Redirecting to <a href="/portfolio/">Matthew Bishop — Portfolio</a>...</p>
+</body>
+</html>

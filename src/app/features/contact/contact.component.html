@@ -1,0 +1,138 @@
+<div class="contact-page">
+  <app-section-heading
+    level="h1"
+    eyebrow="Get in touch"
+    title="Contact"
+    description="Have a role, a project, or a question?"
+    [fullWidthDescription]="true"
+  />
+
+  <div class="contact-layout">
+    <form class="contact-form" [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+      <div class="field">
+        <label for="name" class="label">Name</label>
+        <input
+          id="name"
+          formControlName="name"
+          class="input"
+          autocomplete="name"
+          required
+          aria-required="true"
+          [attr.aria-invalid]="
+            form.controls.name.invalid && form.controls.name.touched ? 'true' : null
+          "
+          [attr.aria-describedby]="
+            form.controls.name.invalid && form.controls.name.touched ? 'name-error' : null
+          "
+        />
+        @if (form.controls.name.invalid && form.controls.name.touched) {
+          <p id="name-error" class="error" role="alert">Please enter your name.</p>
+        }
+      </div>
+
+      <div class="field">
+        <label for="email" class="label">Email</label>
+        <input
+          id="email"
+          type="email"
+          formControlName="email"
+          class="input"
+          autocomplete="email"
+          required
+          aria-required="true"
+          [attr.aria-invalid]="
+            form.controls.email.invalid && form.controls.email.touched ? 'true' : null
+          "
+          [attr.aria-describedby]="
+            form.controls.email.invalid && form.controls.email.touched ? 'email-error' : null
+          "
+        />
+        @if (form.controls.email.invalid && form.controls.email.touched) {
+          <p id="email-error" class="error" role="alert">
+            {{
+              form.controls.email.hasError('required')
+                ? 'Please enter your email.'
+                : 'Please enter a valid email address.'
+            }}
+          </p>
+        }
+      </div>
+
+      <div class="field">
+        <label for="subject" class="label">Subject</label>
+        <input
+          id="subject"
+          formControlName="subject"
+          class="input"
+          required
+          aria-required="true"
+          [attr.aria-invalid]="
+            form.controls.subject.invalid && form.controls.subject.touched ? 'true' : null
+          "
+          [attr.aria-describedby]="
+            form.controls.subject.invalid && form.controls.subject.touched ? 'subject-error' : null
+          "
+        />
+        @if (form.controls.subject.invalid && form.controls.subject.touched) {
+          <p id="subject-error" class="error" role="alert">Please add a subject.</p>
+        }
+      </div>
+
+      <div class="field">
+        <label for="message" class="label">Message</label>
+        <textarea
+          id="message"
+          formControlName="message"
+          class="input textarea"
+          rows="6"
+          required
+          aria-required="true"
+          [attr.aria-invalid]="
+            form.controls.message.invalid && form.controls.message.touched ? 'true' : null
+          "
+          [attr.aria-describedby]="
+            form.controls.message.invalid && form.controls.message.touched ? 'message-error' : null
+          "
+        ></textarea>
+        @if (form.controls.message.invalid && form.controls.message.touched) {
+          <p id="message-error" class="error" role="alert">Please write a message.</p>
+        }
+      </div>
+
+      @if (submitState() === 'success') {
+        <p class="notice success" role="status">
+          Your email app should now be open with this message pre-filled — hit send there to reach
+          me.
+        </p>
+      }
+
+      <div class="actions">
+        <app-button type="submit" ariaLabel="Send message">Send message</app-button>
+      </div>
+    </form>
+
+    <aside class="socials" aria-label="Direct contact">
+      <h3 class="socials-title">Elsewhere</h3>
+      <ul class="social-list">
+        @for (item of socials; track item.label) {
+          <li>
+            <a
+              class="social-link"
+              [href]="item.url"
+              [attr.target]="item.external ? '_blank' : null"
+              [attr.rel]="item.external ? 'noopener' : null"
+            >
+              <span class="social-label">
+                {{ item.label }}
+                @if (item.external) {
+                  <span class="sr-only">(opens in new window)</span>
+                }
+              </span>
+              <span class="social-note">{{ item.note }}</span>
+            </a>
+          </li>
+        }
+      </ul>
+    </aside>
+  </div>
+</div>

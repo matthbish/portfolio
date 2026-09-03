@@ -1,0 +1,22 @@
+<div class="skills-page">
+  <app-section-heading
+    level="h1"
+    eyebrow="Toolkit"
+    title="Skills"
+    description="Categorized across the stack. I favor depth over breadth and prefer to say precisely what I use rather than self-rate."
+    [fullWidthDescription]="true"
+  />
+  <div class="category-grid">
+    @for (category of categories; track category.name) {
+      <section class="category" [attr.aria-labelledby]="'category-' + slug(category.name)">
+        <h3 [id]="'category-' + slug(category.name)" class="category-title">{{ category.name }}</h3>
+        <p class="category-description">{{ category.description }}</p>
+        <div class="category-skills">
+          @for (skill of category.skills; track skill) {
+            <app-badge variant="neutral">{{ skill }}</app-badge>
+          }
+        </div>
+      </section>
+    }
+  </div>
+</div>

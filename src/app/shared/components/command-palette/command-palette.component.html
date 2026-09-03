@@ -1,0 +1,50 @@
+@if (isOpen()) {
+  <div class="palette-backdrop" (click)="close()"></div>
+
+  <div class="palette" role="dialog" aria-modal="true" aria-label="Command palette">
+    <div class="palette-input-row">
+      <span class="palette-icon" aria-hidden="true">⌘</span>
+      <input
+        #queryInput
+        class="palette-input"
+        type="text"
+        placeholder="Type a command or search…"
+        [value]="query()"
+        (input)="query.set($any($event.target).value)"
+        (keydown.arrowdown)="move(1)"
+        (keydown.arrowup)="move(-1)"
+        (keydown.enter)="activate()"
+        (keydown.escape)="close()"
+        aria-label="Search commands"
+        role="combobox"
+        aria-expanded="true"
+        aria-controls="palette-list"
+        [attr.aria-activedescendant]="activeOptionId()"
+        autocomplete="off"
+        spellcheck="false"
+      />
+      <kbd class="palette-esc">esc</kbd>
+    </div>
+
+    <ul [id]="listId" class="palette-list" role="listbox" aria-label="Commands">
+      @for (item of filteredItems(); track item.route; let i = $index) {
+        <li
+          [id]="optionIds[item.route]"
+          class="palette-item"
+          [class.active]="i === activeIndex()"
+          [attr.aria-selected]="i === activeIndex()"
+          role="option"
+          (mouseenter)="activeIndex.set(i)"
+          (click)="activate()"
+        >
+          <span class="palette-item-label">{{ item.label }}</span>
+          @if (item.hint) {
+            <span class="palette-item-hint">{{ item.hint }}</span>
+          }
+        </li>
+      } @empty {
+        <li class="palette-empty" role="option" aria-disabled="true">No commands found</li>
+      }
+    </ul>
+  </div>
+}

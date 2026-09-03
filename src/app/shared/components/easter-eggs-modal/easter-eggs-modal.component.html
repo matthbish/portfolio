@@ -1,0 +1,24 @@
+@if (isOpen()) {
+  <div class="egg-backdrop" (click)="close()"></div>
+
+  <div class="egg-modal" role="dialog" aria-modal="true" aria-labelledby="egg-modal-title">
+    <div class="egg-modal-header">
+      <h2 id="egg-modal-title">🥚 Easter Eggs</h2>
+      <button type="button" class="egg-close" (click)="close()" aria-label="Close">✕</button>
+    </div>
+
+    <p class="egg-intro">Every hidden trick on this site, in one place. No more hunting.</p>
+
+    <ul class="egg-list">
+      @for (egg of eggs; track egg.name) {
+        <li class="egg-item">
+          <div class="egg-item-header">
+            <span class="egg-name">{{ egg.name }}</span>
+            <kbd class="egg-trigger">{{ egg.trigger }}</kbd>
+          </div>
+          <p class="egg-description">{{ egg.description }}</p>
+        </li>
+      }
+    </ul>
+  </div>
+}

@@ -1,0 +1,221 @@
+@if (project(); as project) {
+  <article class="case-study">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a routerLink="/projects">Projects</a>
+      <span aria-hidden="true">/</span>
+      <span>{{ project.name }}</span>
+    </nav>
+
+    <header class="case-header">
+      <div class="case-meta">
+        <span class="case-year">{{ project.year }}</span>
+        @if (project.status) {
+          <span class="case-status case-status-{{ project.status }}">{{ project.status }}</span>
+        }
+      </div>
+      <h1 class="case-title">{{ project.name }}</h1>
+      <p class="case-tagline">{{ project.tagline }}</p>
+      <p class="case-summary">{{ project.summary }}</p>
+
+      <ul class="case-badges" aria-label="Technologies">
+        @for (tech of project.techStack; track tech) {
+          <li>
+            <app-badge>{{ tech }}</app-badge>
+          </li>
+        }
+      </ul>
+
+      <div class="case-actions">
+        @if (project.demoUrl) {
+          <a
+            class="case-external-link"
+            [href]="project.demoUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Live demo ↗<span class="sr-only"> (opens in new window)</span>
+          </a>
+        }
+        @if (project.githubUrl) {
+          <a
+            class="case-external-link"
+            [href]="project.githubUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub ↗<span class="sr-only"> (opens in new window)</span>
+          </a>
+        }
+      </div>
+    </header>
+
+    @if (project.images.length) {
+      <section class="case-gallery" aria-label="Screenshots">
+        <div
+          class="gallery-main"
+          [attr.tabindex]="project.images.length > 1 ? 0 : null"
+          (keydown.arrowLeft)="previousImage(project.images.length)"
+          (keydown.arrowRight)="nextImage(project.images.length)"
+        >
+          @if (project.images.length > 1) {
+            <button
+              type="button"
+              class="gallery-nav gallery-nav-prev"
+              (click)="previousImage(project.images.length)"
+              aria-label="Previous screenshot"
+            >
+              ‹
+            </button>
+          }
+          <img
+            [src]="project.images[selectedImageIndex()]"
+            [alt]="project.name + ' — screenshot ' + (selectedImageIndex() + 1)"
+            width="1200"
+            height="675"
+          />
+          @if (project.images.length > 1) {
+            <button
+              type="button"
+              class="gallery-nav gallery-nav-next"
+              (click)="nextImage(project.images.length)"
+              aria-label="Next screenshot"
+            >
+              ›
+            </button>
+            <span class="gallery-count">
+              {{ selectedImageIndex() + 1 }} / {{ project.images.length }}
+            </span>
+          }
+        </div>
+        @if (project.images.length > 1) {
+          <div class="gallery-thumbs">
+            @for (image of project.images; track image; let i = $index) {
+              <button
+                type="button"
+                class="gallery-thumb-btn"
+                [class.active]="i === selectedImageIndex()"
+                (click)="selectImage(i)"
+                [attr.aria-label]="'Show screenshot ' + (i + 1)"
+                [attr.aria-current]="i === selectedImageIndex()"
+              >
+                <img
+                  class="gallery-thumb"
+                  [src]="image"
+                  [alt]="project.name + ' screenshot ' + (i + 1)"
+                  loading="lazy"
+                  width="400"
+                  height="225"
+                />
+              </button>
+            }
+          </div>
+        }
+      </section>
+    }
+
+    @if (project.highlights.length) {
+      <section class="case-section" aria-labelledby="highlights-title">
+        <app-section-heading eyebrow="Overview" [title]="'Engineering highlights'" />
+        <ul class="highlights">
+          @for (item of project.highlights; track item) {
+            <li>{{ item }}</li>
+          }
+        </ul>
+      </section>
+    }
+
+    @if (project.problem) {
+      <section class="case-section" aria-labelledby="problem-title">
+        <app-section-heading eyebrow="Why" [title]="'The problem'" />
+        <app-prose
+          ><p>{{ project.problem }}</p></app-prose
+        >
+      </section>
+    }
+
+    @if (project.requirements?.length) {
+      <section class="case-section" aria-labelledby="requirements-title">
+        <app-section-heading eyebrow="Scope" [title]="'Requirements'" />
+        <ul class="requirements">
+          @for (req of project.requirements; track req) {
+            <li>{{ req }}</li>
+          }
+        </ul>
+      </section>
+    }
+
+    @if (project.architecture) {
+      <section class="case-section" aria-labelledby="architecture-title">
+        <app-section-heading eyebrow="How" [title]="'Architecture'" />
+        <app-prose
+          ><p>{{ project.architecture }}</p></app-prose
+        >
+        @if (project.architectureDiagram) {
+          <img
+            class="architecture-diagram"
+            [src]="project.architectureDiagram"
+            [alt]="project.name + ' architecture diagram'"
+            loading="lazy"
+          />
+        }
+      </section>
+    }
+
+    @if (project.decisions?.length) {
+      <section class="case-section" aria-labelledby="decisions-title">
+        <app-section-heading eyebrow="Trade-offs" [title]="'Engineering decisions'" />
+        <div class="decision-grid">
+          @for (decision of project.decisions; track decision.title) {
+            <article class="decision-card">
+              <h3>{{ decision.title }}</h3>
+              <p>{{ decision.detail }}</p>
+            </article>
+          }
+        </div>
+      </section>
+    }
+
+    @if (project.challenges?.length) {
+      <section class="case-section" aria-labelledby="challenges-title">
+        <app-section-heading eyebrow="Hard parts" [title]="'Challenges'" />
+        <ul class="challenges">
+          @for (challenge of project.challenges; track challenge) {
+            <li>{{ challenge }}</li>
+          }
+        </ul>
+      </section>
+    }
+
+    @if (project.lessons?.length) {
+      <section class="case-section" aria-labelledby="lessons-title">
+        <app-section-heading eyebrow="Retrospective" [title]="'Lessons learned'" />
+        <ul class="lessons">
+          @for (lesson of project.lessons; track lesson) {
+            <li>{{ lesson }}</li>
+          }
+        </ul>
+      </section>
+    }
+
+    @if (project.futureWork?.length) {
+      <section class="case-section" aria-labelledby="future-title">
+        <app-section-heading eyebrow="Roadmap" [title]="'Future improvements'" />
+        <ul class="future-list">
+          @for (item of project.futureWork; track item) {
+            <li>{{ item }}</li>
+          }
+        </ul>
+      </section>
+    }
+
+    <footer class="case-footer">
+      <app-button [href]="'/projects'" variant="ghost">← Back to projects</app-button>
+    </footer>
+  </article>
+} @else {
+  <section class="not-found-state">
+    <h1>Project not found</h1>
+    <p>The project you are looking for does not exist.</p>
+    <app-button [href]="'/projects'">Back to projects</app-button>
+  </section>
+}

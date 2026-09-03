@@ -1,0 +1,85 @@
+<section class="projects-page" aria-labelledby="projects-title">
+  <app-section-heading
+    level="h1"
+    eyebrow="Personal projects"
+    [title]="'Projects'"
+    description="Personal work outside my full-time engineering role. Each case study covers the problem, architecture, decisions, and trade-offs — see the Experience page for my professional work."
+    [fullWidthDescription]="true"
+  />
+
+  <div class="flagship-grid">
+    @for (project of flagshipProjects(); track project.slug) {
+      <article class="flagship-card">
+        @if (project.heroImage) {
+          <a [routerLink]="['/projects', project.slug]" class="flagship-hero-link" tabindex="-1">
+            <img
+              class="flagship-hero"
+              [src]="project.heroImage"
+              [alt]="project.name"
+              loading="lazy"
+              width="1200"
+              height="675"
+            />
+          </a>
+        }
+        <div class="flagship-content">
+          <h2 class="flagship-title">
+            <a [routerLink]="['/projects', project.slug]">{{ project.name }}</a>
+          </h2>
+          <p class="flagship-tagline">{{ project.tagline }}</p>
+          <p class="flagship-summary">{{ project.summary }}</p>
+          <ul class="flagship-badges" aria-label="Technologies">
+            @for (tech of project.techStack.slice(0, 6); track tech) {
+              <li>
+                <app-badge>{{ tech }}</app-badge>
+              </li>
+            }
+          </ul>
+          <div class="flagship-links">
+            <app-button [href]="'/projects/' + project.slug" variant="secondary">
+              Read case study
+            </app-button>
+            @if (project.demoUrl) {
+              <a
+                class="external-link"
+                [href]="project.demoUrl"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Live demo ↗<span class="sr-only"> (opens in new window)</span>
+              </a>
+            }
+          </div>
+        </div>
+      </article>
+    }
+  </div>
+
+  @if (hasSmallerProjects()) {
+    <div class="smaller-section">
+      <app-section-heading
+        eyebrow="Additional work"
+        [title]="'Smaller projects'"
+        description="Focused tools and experiments that showcase breadth across platforms and languages."
+        [fullWidthDescription]="true"
+      />
+      <ul class="smaller-list">
+        @for (project of smallerProjects(); track project.slug) {
+          <li class="smaller-item">
+            <a [routerLink]="['/projects', project.slug]" class="smaller-link">
+              {{ project.name }}
+            </a>
+            <p class="smaller-tagline">{{ project.tagline }}</p>
+            <ul class="smaller-badges" aria-label="Technologies">
+              @for (tech of project.techStack.slice(0, 4); track tech) {
+                <li>
+                  <app-badge variant="subtle">{{ tech }}</app-badge>
+                </li>
+              }
+            </ul>
+          </li>
+        }
+      </ul>
+    </div>
+  }
+</section>
