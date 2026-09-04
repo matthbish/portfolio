@@ -79,6 +79,71 @@ export const PROJECTS: readonly Project[] = [
     status: 'active'
   },
   {
+    slug: 'git-toolbox',
+    name: 'git-toolbox',
+    tagline: 'Personal git scripts, rebuilt into a published, cross-platform CLI',
+    summary:
+      'An open-source command-line tool collecting everyday git workflow shortcuts — push, pull, amend, squash, branch cleanup, diff export, and a TODO finder — refactored from a years-old private scripts folder into a tested, documented package installable with one npm command, with automated cross-platform testing and a token-free release pipeline.',
+    flagship: true,
+    demoUrl: 'https://www.npmjs.com/package/@matthbish/git-toolbox',
+    githubUrl: 'https://github.com/matthbish/git-toolbox',
+    heroImage: 'assets/git-toolbox/terminal.svg',
+    images: ['assets/git-toolbox/terminal.svg'],
+    techStack: ['TypeScript', 'Node.js', 'Commander.js', 'Vitest', 'GitHub Actions', 'npm'],
+    highlights: [
+      'Seven everyday git shortcuts (push, pull, amend, squash, branch cleanup, diff export, TODO finder) collapsed into one small CLI',
+      'Installs with a single `npm install -g`, runs on Windows, macOS, and Linux, and doubles as a git subcommand (`git toolbox <command>`)',
+      '30 automated tests — including real-repo integration tests against disposable git repositories — run on all three operating systems in CI on every push',
+      'Publishes automatically via npm Trusted Publishing (OIDC): GitHub Actions authenticates with a short-lived, repo-scoped credential instead of a stored token'
+    ],
+    problem:
+      "A personal collection of git scripts, built up ad hoc over several years, had real everyday utility but was unusable by anyone else: no argument parsing or error handling, hardcoded machine-specific paths, and nothing safe to share as-is. Turning the genuinely reusable parts into something worth publishing meant separating the two, then rebuilding what remained as real, tested software rather than quick scripts.",
+    requirements: [
+      'Audit a private scripts collection and separate general-purpose git utilities from machine-specific tooling, without leaking sensitive information',
+      'Design an installable CLI that works cross-platform without requiring end users to install Python',
+      'Give every command proper argument parsing, help text, error handling, and exit codes',
+      'Cover the CLI with automated tests across Windows, macOS, and Linux',
+      'Set up CI and a low-friction, automated release process suitable for publishing to npm'
+    ],
+    architecture:
+      "A single Node.js/TypeScript CLI built on Commander.js, bundled with tsup, and published as one npm package with two entry points: `git-toolbox` and a shorter `gtx` alias (added by a conflict-safe postinstall script that only creates the alias if that name is free on the user's machine, and never overwrites another tool's command). Every command shells out to the system `git` binary through an argument-array-based subprocess wrapper — never a string-interpolated shell command — and shares a small internal library for common operations like resolving the repository root, the current branch, and the remote's default branch.",
+    decisions: [
+      {
+        title: 'One CLI with subcommands, not several small packages',
+        detail:
+          'A single npm package with git-style subcommands (`git-toolbox push`, `git-toolbox squash`, …) is far easier to install, version, and maintain than seven separate packages — and because the binary is literally named `git-toolbox`, git itself recognizes it as a custom subcommand, so `git toolbox <command>` works with no extra setup.'
+      },
+      {
+        title: 'TypeScript/Node over preserving the original PowerShell/Python split',
+        detail:
+          'The source scripts were a mix of PowerShell and Python. Rewriting everything in one language removed the Python-runtime dependency for end users and replaced three parallel implementations with a single, consistent, cross-platform codebase.'
+      },
+      {
+        title: '`--force-with-lease` instead of a plain `--force`',
+        detail:
+          "The original amend/squash scripts force-pushed unconditionally. The rewritten versions use `--force-with-lease`, which rejects the push if the remote branch moved since the last fetch — a small change that prevents silently overwriting someone else's work."
+      },
+      {
+        title: 'npm Trusted Publishing over a stored token',
+        detail:
+          "After running into friction with classic npm tokens and account 2FA during setup, the release pipeline was switched to npm's OIDC-based Trusted Publishing, so GitHub Actions authenticates with a short-lived, repo-scoped credential instead of a long-lived secret sitting in repository settings."
+      }
+    ],
+    challenges: [
+      'Distinguishing genuinely reusable utilities from scripts that were subtly tied to specific internal systems, without publishing anything sensitive',
+      'Working through several real layers of the npm publish pipeline — token scope, account 2FA, and finally OIDC trusted publishing — to reach a fully automated, secure release process'
+    ],
+    lessons: [
+      'A personal scripts folder and a publishable open-source tool are different products with a different bar for safety, naming, and error handling, even when the underlying logic is simple'
+    ],
+    futureWork: [
+      'Add more git shortcuts as they prove useful day to day',
+      'Publish shell completion scripts for bash, zsh, and PowerShell'
+    ],
+    year: '2026',
+    status: 'active'
+  },
+  {
     slug: 'running-route-generator',
     name: 'Running Route Generator',
     tagline: 'Generate custom running routes from any location',
